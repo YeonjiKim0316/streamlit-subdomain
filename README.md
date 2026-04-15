@@ -1,6 +1,6 @@
 # Subdomain Service
 
-`thisispaperdoll.site` 부모 도메인 아래에 서브도메인을 발급하고, 학생 본인의 AWS Route53 호스팅 영역으로 NS를 위임해주는 Streamlit 기반 서비스.
+`ai-engineering.site` 부모 도메인 아래에 서브도메인을 발급하고, 학생 본인의 AWS Route53 호스팅 영역으로 NS를 위임해주는 Streamlit 기반 서비스.
 
 ## 구성
 - `app.py` — Streamlit 프론트 + 발급/회수 로직
@@ -23,7 +23,7 @@ pip install -r requirements.txt
     cp .env.example .env
     ```
 2. 특히 다음 값을 반드시 채울 것:
-   - `PARENT_ZONE_ID` — Route53 콘솔에서 `thisispaperdoll.site` 호스팅 영역 ID
+   - `PARENT_ZONE_ID` — Route53 콘솔에서 `ai-engineering.site` 호스팅 영역 ID
    - `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` — 아래 IAM 정책이 붙은 키
    - `DB_*` — MySQL 접속 정보
 
@@ -77,11 +77,11 @@ crontab -e
 ## 학생 사용 절차
 
 1. 본인 AWS 콘솔 → Route53 → 호스팅 영역 생성
-   - 도메인 이름: `<원하는라벨>.thisispaperdoll.site`
+   - 도메인 이름: `<원하는라벨>.ai-engineering.site`
    - 유형: 퍼블릭 호스팅 영역
 2. 자동 생성된 NS 레코드 4개 복사
 3. 이 서비스의 "발급" 탭에 라벨 + NS 4개 입력 후 제출
-4. `dig NS <라벨>.thisispaperdoll.site @8.8.8.8` 로 전파 확인
+4. `dig NS <라벨>.ai-engineering.site @8.8.8.8` 로 전파 확인
 5. 본인 호스팅 영역에서 A/CNAME/ACM 레코드 자유 설정
 
 ## 주의
