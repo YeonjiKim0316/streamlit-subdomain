@@ -9,7 +9,7 @@ import db
 import route53_client as r53
 
 APP_PASSWORD = os.getenv("APP_PASSWORD")
-PARENT_DOMAIN = os.getenv("PARENT_DOMAIN", "thisispaperdoll.site")
+PARENT_DOMAIN = os.getenv("PARENT_DOMAIN", "ai-engineering.site")
 LEASE_DAYS = int(os.getenv("LEASE_DAYS", "30"))
 
 st.set_page_config(page_title="Subdomain Service", page_icon="🌐", layout="wide")
